@@ -1,0 +1,19 @@
+{
+    "name": "wizacha/awssignaturemiddleware",
+    "type": "library",
+    "description": "Middleware to sign request for AWS API",
+    "keywords": ["AWS", "signature", "middleware", "guzzle"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wizacha",
+            "homepage": "http://wizacha.github.io/"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.8"
+    },
+    "autoload": {
+        "psr-4": { "Wizacha\\": "src/" }
+    }
+}
