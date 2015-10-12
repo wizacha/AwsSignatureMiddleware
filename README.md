@@ -2,7 +2,7 @@
 Kind of connector to use AWS Elasticsearch Service with elastic/elasticsearch-php client
 
 ## Installation
-`composer require wizacha/awssignaturemiddleware`
+`composer require wizacha/aws-signature-middleware`
 
 ## Usage
 Exemple with elasticsearch client
