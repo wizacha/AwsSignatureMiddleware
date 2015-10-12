@@ -1,5 +1,5 @@
 {
-    "name": "wizacha/awssignaturemiddleware",
+    "name": "wizacha/aws-signature-middleware",
     "type": "library",
     "description": "Middleware to sign request for AWS API",
     "keywords": ["AWS", "signature", "middleware", "guzzle"],
