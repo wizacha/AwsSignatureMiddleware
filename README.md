@@ -14,7 +14,7 @@ $signature = new \Aws\Signature\SignatureV4('es', 'eu-west-1');
 
 $middleware = new \Wizacha\Middleware\AwsSignatureMiddleware($credentials, $signature);
 $defaultHandler = \Elasticsearch\ClientBuilder::defaultHandler();
-$awsHandler = $middleware($defaultHandler)
+$awsHandler = $middleware($defaultHandler);
 
 $clientBuilder =  \Elasticsearch\ClientBuilder::create();
 
