@@ -15,5 +15,8 @@
     },
     "autoload": {
         "psr-4": { "Wizacha\\": "src/" }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
     }
 }
