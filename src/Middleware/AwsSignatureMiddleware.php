@@ -40,11 +40,18 @@ class AwsSignatureMiddleware
     {
         return function ($request)  use ($handler) {
             $headers = $request['headers'];
-            if ($headers['host']) {
-                if (is_array($headers['host'])) {
-                    $headers['host'] = array_map([$this, 'removePort'], $headers['host']);
+            $host = null;
+            if (isset($headers['host'])) {
+                $host = $headers['host'];
+            } elseif (isset($headers['Host'])) {
+                $host = $headers['Host'];
+            }
+
+            if ($host) {
+                if (is_array($host)) {
+                    $headers['Host'] = array_map([$this, 'removePort'], $host);
                 } else {
-                    $headers['host'] = $this->removePort($headers['host']);
+                    $headers['Host'] = $this->removePort($host);
                 }
             }
             $psrRequest = new Request($request['http_method'], $request['uri'], $headers, $request['body']);
