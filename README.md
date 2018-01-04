@@ -1,6 +1,8 @@
 # AwsEsConnection
 Kind of connector to use AWS Elasticsearch Service with elastic/elasticsearch-php client
 
+[![Build Status](https://travis-ci.org/wizacha/AwsSignatureMiddleware.svg?branch=master)](https://travis-ci.org/wizacha/AwsSignatureMiddleware)
+
 ## Installation
 `composer require wizacha/aws-signature-middleware`
 
