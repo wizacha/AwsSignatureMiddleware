@@ -32,7 +32,7 @@ class AwsSignatureMiddlewareTest extends TestCase
                     0 => '20180104T094352Z',
                 ],
                 'Authorization' => [
-                    0 => 'AWS4-HMAC-SHA256 Credential=id/20180104/eu-west-1/es/aws4_request, SignedHeaders=host;x-amz-date, Signature=5f63be9f8b7d4eebb22a3ece55c449fd5723c24c996eea7947afac213cb6473e'
+                    0 => 'AWS4-HMAC-SHA256 Credential=id/20180104/eu-west-1/es/aws4_request, SignedHeaders=host;x-amz-date, Signature=f7497cc354b6efdb16119b8aed83938bfe92cc700b7a7452e8651e52be89ee34'
                 ],
             ],
             'http_method' => 'PUT',
