@@ -40,24 +40,27 @@ class AwsSignatureMiddleware
     {
         return function ($request)  use ($handler) {
             $headers = $request['headers'];
-            $host = null;
+
+            $hostHeaderName = null;
             if (isset($headers['host'])) {
-                $host = $headers['host'];
-            } elseif (isset($headers['Host'])) {
-                $host = $headers['Host'];
+                $hostHeaderName = 'host';
+            } elseif ($headers['Host']) {
+                $hostHeaderName = 'Host';
             }
 
-            if ($host) {
-                if (is_array($host)) {
-                    $headers['Host'] = array_map([$this, 'removePort'], $host);
+            if ($hostHeaderName !== null) {
+                if (is_array($headers[$hostHeaderName])) {
+                    $headers[$hostHeaderName] = array_map([$this, 'removePort'], $headers[$hostHeaderName]);
                 } else {
-                    $headers['Host'] = $this->removePort($host);
+                    $headers[$hostHeaderName] = $this->removePort($headers[$hostHeaderName]);
                 }
             }
+
             $psrRequest = new Request($request['http_method'], $request['uri'], $headers, $request['body']);
             $psrRequest = $this->signature->signRequest($psrRequest, $this->credentials);
 
             $request['headers'] = array_merge($psrRequest->getHeaders(), $request['headers']);
+
             return $handler($request);
         };
     }
