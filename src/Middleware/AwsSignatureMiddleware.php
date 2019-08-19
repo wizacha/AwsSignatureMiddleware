@@ -72,7 +72,8 @@ class AwsSignatureMiddleware
      */
     protected function removePort($host)
     {
-        return parse_url($host)['host'];
+        $parsedHost = parse_url($host);
+        return $parsedHost['host'] ?? $parsedHost['path'];
     }
 
 }
